@@ -1,0 +1,24 @@
+{
+  "name": "fingerprint",
+  "version": "1.0.0",
+  "description": "fingerprint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hhhggg321/fingerprint.git"
+  },
+  "author": "hao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hhhggg321/fingerprint/issues"
+  },
+  "homepage": "https://github.com/hhhggg321/fingerprint#readme",
+  "dependencies": {
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "fingerprintjs": "^0.5.3"
+  }
+}

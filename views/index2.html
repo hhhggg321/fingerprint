@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <title>Fingerprintjs2 test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{
+      font-family: sans-serif;
+      max-width: 48em;
+      margin: auto;
+      padding: 30px;
+      font-size: 16px;
+    }
+    h1 {
+      margin: 2em 0 0;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    ol {
+      font-size: 1.5em;
+    }
+    strong {
+      display: block;
+      letter-spacing: 1px;
+      word-wrap: break-word;
+    }
+    @media (min-width: 32em) {
+      h1 {
+        font-size: 4em;
+      }
+      strong {
+        font-size: 1.5em;
+      }
+    }
+
+    .container{
+      padding: 50px;
+    }
+    
+  </style>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/fingerprint2.js"></script>
+  <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+  <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div id="container">
+    <p>您的浏览器指纹是: <strong id="fp"></strong></p>
+    <p>这是您第 <b>0 </b> 次访问。</p>
+    <p>计算浏览器指纹耗时:<span id="time"></span></p>
+    <ol id="keys"></ol>
+  </div>
+  
+  <script>
+    var fp = new Fingerprint2();
+    var keys = fp.getKeys();
+    for(var i = 0; i < keys.length; i++){
+        $("#keys").append('<li><code><b>' + keys[i].key + '</b> :        ' + keys[i].value+'</code></li>');
+    }
+    var d1 = new Date();
+    fp.get(function(result) {
+      var d2 = new Date();
+      var timeString = "<b>" + (d2 - d1) + "</b> ms";
+      $("#fp").text(result);
+      $("#time").html(timeString);
+    });
+  </script>
+</body>
+</html>
